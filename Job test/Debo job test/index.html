@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Job Test</title>
+    <meta name="description" content="A simple page to register and view registered people.">
+    <meta name="author" content="Bello Gbadebo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <!--Css files needed //-->
+    <link rel="stylesheet" media="screen" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="font-awesome.min.css">
+    <!-- Firebase Javascript files -->
+    <script defer src="/__/firebase/5.2.0/firebase-app.js"></script>
+    <!-- Firebase features -->
+    <script defer src="/__/firebase/5.2.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.2.0/firebase-firestore.js"></script>
+    <script defer src="/__/firebase/5.2.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/5.2.0/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+  </head>
+  <body>
+    <!-- particles.js container -->
+<div id="particles-js"></div>
+<!-- page header //-->
+<header class="z-depth-2"><div id="header-content">Test Page</div></header>
+<!--Loader Container //-->
+<div id="loader_container">
+  <div id="loader" class="center">
+    <h5>Loading, Please wait.......</h5>
+    <div class="progress">
+      <div class="indeterminate"></div>
+    </div>
+  </div>
+</div>
+<!--Registration container //-->
+<div id="register_container">
+  <div id="register" class="z-depth-2">
+    <!--create account begins here //-->
+    <div class="Create-chatup center blue-text" id="breate-color"><h4>Create Account</h4></div>
+      <form name="registrationForm">
+        <div class="row">
+          <div class="col s12 m12 l6">
+            <div class="row"><!--Last name input //-->
+                      <div class="input-field col s12">
+                        <input id="lastname" type="text" name="lastname" style="text-transform: capitalize;" required>
+                        <label for="lastname">Lastname</label>
+                      </div>
+                    </div>
+          </div>
+          <div class="col s12 m12 l6">
+            <div class="row"><!--firstname inputs//-->
+                      <div class="input-field col s12">
+                        <input id="firstname" type="text" name="firstname" style="text-transform: capitalize;" required>
+                        <label for="firstname">Firstname</label>
+                      </div>
+                    </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m12 l6">
+            <div class="row">
+                      <div class="input-field col s12"><!--email inputs, email is validated by materialize and no messages are displayed when corect email is entered but an error message displays when the wrong email format is inputed//-->
+                        <input id="email" type="email" class="validate" name="email" required>
+                        <label for="email" data-error="Wrong_Email_Format">Email</label>
+                      </div>
+                    </div>
+          </div>
+          <div class="col s12 m12 l6">
+            <div class="row">
+            <!--username input
+            *the user is alowed to use anything as his username
+            //-->
+                      <div class="input-field col s12">
+                        <input id="username" type="text" class="username" name="username" style="text-transform: capitalize;" required>
+                        <label for="username">Username</label>
+                      </div>
+                    </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m12 l6">
+            <div class="row"><!--password input //-->
+            <!--
+            *passsword is properly validated and users are forced to input correct password formats
+            *password must be atleast 8 characters long
+            *password must start with an uppercase letter
+            *password must contain a number 
+            *an error message that indicates whats wrong with the inputted password pops up once a user starts typin in his password
+            *wrong password formats input are highlighted in red
+            *when the wrong inpout is corrected, the password is marked in green 
+            //-->
+                      <div class="input-field col s12">
+                        <input id="password" type="password" name="password" onkeyup="valid_password(this.value)" required>
+                        <label for="password" name="password">Password</label>
+                        <div id="valid_password" style="position: absolute; width: 95%;">
+                          <ul class="collection z-depth-2">
+                            <li class="collection-item" id="valid1">Password must begin with an uppercase letter
+                            <span class="secondary-content" id="checktoggle1" style="margin-top: -1em">
+                            <input type="checkbox" id="validbox1" checked="checked" disabled="disabled" />
+                                <label for="valid1"></label>
+                                </span>
+                            </li>
+                            <li class="collection-item" id="valid3">Password must contain atleast a number
+                            <span class="secondary-content" id="checktoggle3" style="margin-top: -1em">
+                            <input type="checkbox" id="validbox3" checked="checked" disabled="disabled" />
+                                <label for="valid3"></label>
+                                </span>
+                            </li>
+                            <li class="collection-item" id="valid2">Password must contain atleast 8 characters
+                            <span class="secondary-content" id="checktoggle2" style="margin-top: -1em">
+                            <input type="checkbox" id="validbox2" checked="checked" disabled="disabled" />
+                                <label for="valid2"></label>
+                                </span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+          </div>
+          <div class="col s12 m12 l6">
+            <div class="row">
+            <!--Inouts i confirm password must be the same as that of the password//-->
+                      <div class="input-field col s10">
+                        <input id="confirmpassword" type="password" name="confirmpassword" onkeyup="comparePassword()" required>
+                        <label for="confirmpassword">Confirm Password</label>
+                      </div><br /><br />  
+                      <span class="pass-show" id="pass_show" onclick="show_password()"><i id="open_eye" class="fas fa-eye fa-2x"></i></span>
+                      <span class="pass-show" id="pass_hide" onclick="hide_password()"><i id="closed_eye" class="fas fa-eye-slash fa-2x"></i></span>
+                    </div>
+                    <div id="pass_confirm">Password Mismatch</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m12 l6">
+            <div class="row">
+                      <div class="input-field col s10">
+                        <input name="gend" type="hidden" id="gend"/>
+                        <label for="gend"><b>Gender : &nbsp; &nbsp; </b></label>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input name="gender" type="radio" id="male" class="with-gap" value="male" />
+                        <label for="male">Male</label> &nbsp; &nbsp;
+                        <input name="gender" type="radio" id="female" class="with-gap" value="female" />
+                        <label for="female">Female</label>
+                      </div>
+                    </div>
+          </div>
+        </div>
+        <!--Create account button //-->
+        <div class="center"><button type="button" name="create_account" class="btn waves-effect waves-blue indigo darken-1 acct-create" onclick="check_empty()" style="z-index: 1;">Create Account</button></div><br />
+      </form>
+  </div>
+    <!--create account ends here //-->
+  </div>
+</div>
+<!-- Page overlay container //-->
+<div id="pageOverlay" style="z-index: 2;"></div>
+<!-- Registering Loader //-->
+<div id="registering_loader_container" style="z-index: 3;">
+    <div id="loader" class="center">
+    <h5>Creating your account.....</h5>
+    <div class="progress">
+      <div class="indeterminate"></div>
+    </div>
+  </div>
+  </div>
+</div>
+<!-- particle.js scripts //-->
+<script src="js/particles.min.js"></script>
+<script src="js/app.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/fontawesome-all.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+  </body>
+</html>

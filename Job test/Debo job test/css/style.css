@@ -1,0 +1,362 @@
+:root{
+	--myblue: #3f51b5;
+}
+html,body{ 
+	width:100%;
+	height:100%;
+}
+body{
+  font:normal 75% Arial, Helvetica, sans-serif;
+}
+
+canvas{
+  display:block;
+  vertical-align:bottom;
+}
+/* ---- particles.js container ---- */
+#particles-js{
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(var(--myblue), cyan);
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+/*Changing default materialize waves effect color to blue */
+.waves-effect.waves-blue .waves-ripple {
+    background-color: #596cd2;
+}
+/*Changing default materialize styles for styling inputs*/
+input[type=text]:focus{
+     border-bottom: 1px solid #3f51b5 !important;
+   }
+input[type=text]:focus + label{
+     color: #3f51b5 !important;
+     font-weight: bold;
+   }
+input[type=email]:focus{
+     border-bottom: 1px solid #3f51b5 !important;
+   }
+input[type=email]:focus + label{
+     color: #3f51b5 !important;
+     font-weight: bold;
+   }
+input[type=password]:focus{
+     border-bottom: 1px solid #3f51b5 !important;
+   }
+input[type=password]:focus + label{
+     color: #3f51b5 !important;
+     font-weight: bold;
+   }
+input[type=date]:focus{
+     border-bottom: 1px solid #3f51b5 !important;
+   }
+[type="radio"].with-gap:checked+label:before{
+	border-radius:50%;
+	border:2px solid #3f51b5 !important;
+}
+[type="radio"].with-gap:checked+label:after{
+	border-radius:50%;
+	border:2px solid #3f51b5 !important;
+	background-color:#3f51b5 !important;
+}
+/*Page header*/
+header{
+	width: 100%;
+	height: 70px;
+	background: white;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	left: 0px;
+}
+#header-content{
+	position: absolute;
+	left: 2em;
+	top: -18px;
+	color: var(--myblue);
+	font-size: 2.92rem;
+    line-height: 110%;
+    margin: 1.9466666667rem 0 1.168rem 0;
+    box-sizing: inherit;
+    font-weight: 400;
+}
+#loader_container{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	justify-content: center;
+	align-items: center;
+}
+#loader{
+	display: block;
+	color: white;
+}
+.indeterminate{
+	background: var(--myblue)!important;
+}
+#register_container{
+	display: none; /*would be later changed to flex*/
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	animation: anim 1s ease-out;
+}
+#registeredContainer{
+	display: none; /*would be later changed to flex*/
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	animation: anim 1s ease-out;}
+@keyframes anim{
+	from{
+		opacity: 0;
+		transform: scale(0);
+	}
+	to{
+		opacity: 1;
+	}
+}
+#register{
+	display: block;
+	width: 70%;
+	height: 540px!important;
+	background: white;
+	margin-top: 5.7em;
+	border-radius: 1em;
+}
+#registered{
+	display: block;
+	width: 70%;
+	height: 540px!important;
+	background: white;
+	margin-top: 5.7em;
+}
+#registered1{
+	margin-top: 6em;
+	display: none;
+	width: 99.2%;
+	height: 550px;
+	background: white;
+	overflow-y: scroll;
+}
+@media only screen and (max-width: 325px){
+	#register{
+		margin-top: 8em;
+		height: 450px!important;
+		width: 95%!important;
+	}
+	#registered{
+		margin-top: 8em;
+		height: 450px!important;
+		width: 95%!important;
+	}
+}
+@media only screen and (max-width: 600px){
+	#register{
+		width: 90%;
+	}
+	#registered{
+		width: 90%;
+	}
+}
+@media only screen and (max-width: 900px){
+	#register{
+		height: 830px;
+		overflow-y: scroll;
+	}
+	#registered{
+		height: 830px;
+	}
+}
+@media only screen and (min-width: 900px){
+	#registered{
+		height: 830px;
+		display: none;
+	}
+	#registered1{
+		display: flex;
+		flex-wrap: wrap; 
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		overflow-y: scroll;
+	}
+}
+#create-color{
+	color: var(--myblue);
+}
+#validbox1:checked:disabled+label:before, #validbox2:checked:disabled+label:before, 
+#validbox3:checked:disabled+label:before{
+	border-right:2px solid #81c784 !important;
+	border-bottom:2px solid #81c784 !important;
+}
+#checktoggle1, #checktoggle2, #checktoggle3{
+	display: none;
+}
+#valid_password{
+	display: none;
+	margin-top: -1em;
+	z-index: 1;
+}
+#valid1, #valid2, #valid3{
+	background: rgb(241, 207, 204);
+	color: red;
+	font-weight: 300;
+	font-size: 1.2em;
+}
+#pass_confirm{
+	display: none;
+	position: absolute;
+	color: red;
+	font-size: 1.2em;
+	font-weight: 400;
+}
+#open_eye, #closed_eye{
+	color: var(--myblue);
+}
+#pass_hide{
+	display: none;
+}
+#registered{
+	overflow-y: scroll;
+}
+#registered_list::-webkit-scrollbar {
+    width: 5px;
+}
+ 
+#registered_list::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+#registered_list::-webkit-scrollbar-thumb {
+  background-color: grey;
+  outline: 1px solid slategrey;
+}
+#pageOverlay{
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	background: black;
+	opacity: 0.5;
+}
+#registering_loader_container{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	bottom: 0px;
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+#register_header{
+	color: var(--myblue);
+}
+.user{
+	height: 300px;
+	justify-content: center;
+	align-items: center;
+	margin: 4em;
+}
+.users{
+	display: block;
+	width: 200px;
+	height: 330px;
+	background: white;
+	cursor: pointer;
+	animation: show 1.5s ease-out;
+}
+@keyframes show{
+	from{
+		transform: translateY(70px) scale(0);
+		opacity: 0;
+	}
+}
+.userImg{
+	height: 70%;
+}
+.userDetails{
+	height: 30%;
+	padding-left: 10px;
+}
+.img{
+	width: 100%;
+	height: 100%;
+}
+.userEmail{
+	font-size: 13px;
+}
+#userMoreBody{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 100%;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+}
+#usersMore{
+	display: none; 
+	width: 370px;
+	height: 600px;
+	background: white;
+	animation: slide .5s linear;
+}
+@keyframes slide{
+	from{
+		transform: scale(0);
+		opacity: 0;
+
+	}
+}
+#usersName, #usersUsername, #usersEmail, #usersGender{
+	padding-left: 10px;
+	padding-top: 10px;
+	height: 10%;
+}
+#usersImage{
+	height: 50%;
+}
+#userClose{
+	margin-top: 5px;
+	padding-top: 10px;
+	height: 10%;
+	border-top: 1px dotted lightgrey!important;
+}
+#close{
+	background: var(--myblue)!important;
+}
+.name{
+	font-weight: bold;
+	font-size: 15px;
+}

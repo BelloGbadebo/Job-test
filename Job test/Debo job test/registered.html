@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Job Test Registered People</title>
+	<meta name="description" content="A simple page to register and view registered people.">
+       <meta name="author" content="Bello Gbadebo" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" media="screen" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="font-awesome.min.css">
+	<!-- Firebase Javascript files -->
+    <script defer src="/__/firebase/5.2.0/firebase-app.js"></script>
+    <!-- Firebase features -->
+    <script defer src="/__/firebase/5.2.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.2.0/firebase-firestore.js"></script>
+    <script defer src="/__/firebase/5.2.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/5.2.0/firebase-storage.js"></script>
+    <!-- initializing the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+	
+</head>
+<body onload="hey()">
+<!-- particles.js container -->
+<div id="particles-js"></div>
+<!-- page header //-->
+<header class="z-depth-2"><div id="header-content">Test Page</div></header>
+<!--Loader Container //-->
+<div id="loader_container">
+	<div id="loader" class="center">
+		<h5>Loading, Please wait.......</h5>
+		<div class="progress">
+			<div class="indeterminate"></div>
+		</div>
+	</div>
+</div>
+<!--Registered peoples parent conatiner//-->
+<div id="registeredContainer">
+	<!--Registered peoples container, this particular container only displays on mobile devices//-->
+	<div id="registered">
+		<!--LIst of registered people //-->
+		<ul class="collection" id="registered_list">
+			<li class="collection-header center" id="register_header">
+				<h4>REGISTERED</h4>
+			</li>
+                     <!--List of people registered would appear here //-->
+		</ul>
+	</div>
+       <!--Registered peoples container, this particular container only displays on desktop devices//-->
+       <div id="registered1">
+              <!--Registered users are loaded here//-->
+       </div>
+       <div id="userMoreBody">
+              <div id="usersMore" class="z-depth-3">
+                     <div id="usersImage">
+                            <img src="images/male_avatar.png" class="img">
+                     </div>
+                     <div id="usersName">
+                            <div class="name">Name</div>
+                            <h5 class="grey-text" id="iname">Bello Gbadebo</h5>
+                     </div>
+                     <div id="usersUsername">
+                            <div class="name">Username</div>
+                            <h5 class="grey-text" id="iusername">Gbahdeyboh</h5>
+                     </div>
+                     <div id="usersEmail">
+                            <div class="name">Email</div>
+                            <h6 class="grey-text" id="iemail">gbahdeybohbello@gmail.com</h6>
+                     </div>
+                     <div id="usersGender">
+                            <div class="name">Gender</div>
+                            <h5 class="grey-text" id="igender">Male</h5>
+                     </div>
+                     <div id="userClose" class="center">
+                            <div class=" btn waves-effect waves-light center" id="close" onclick="hideDetails()">Close</div>
+                     </div>
+              </div>
+       </div>
+</div>
+<div id="pageOverlay"></div>
+
+<!-- particle.js scripts -->
+<script src="js/particles.min.js"></script>
+<script src="js/app.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/register.js"></script>
+<script type="text/javascript" src="js/fontawesome-all.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+</html>
